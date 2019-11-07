@@ -64,7 +64,8 @@ export class TomcatController {
                 }
             }
             Utility.trackTelemetryStep('browse war');
-            opn(new URL(warPackage.label, `${Constants.LOCALHOST}:${httpPort}`).toString());
+            const path: string = warPackage.label.split("##")[0];
+            opn(new URL(path, `${Constants.LOCALHOST}:${httpPort}`).toString());
         }
     }
 
